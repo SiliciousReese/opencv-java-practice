@@ -57,9 +57,10 @@
         <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
         <antcall target="build"/>
     </target>
-    <target name="Main (2)">
+    <target name="run">
         <java classname="application.Main" failonerror="true" fork="yes">
             <classpath refid="TestOpencv.classpath"/>
+            <sysproperty key="java.library.path" value="/usr/share/opencv/java/" />
         </java>
     </target>
 </project>
