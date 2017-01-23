@@ -1,21 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 
-
-<BorderPane xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
+<BorderPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
+   <center>
+      <ImageView fx:id="imageViewer" fitHeight="700.0" fitWidth="1600.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
+   </center>
    <bottom>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="15.0" BorderPane.alignment="CENTER">
+      <Pane BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="captureButton" mnemonicParsing="false" onAction="#capture" prefHeight="26.0" prefWidth="156.0" text="Capture Video" />
-            <Button fx:id="trainButton" mnemonicParsing="false" onAction="#train" prefHeight="26.0" prefWidth="53.0" text="Train" />
+            <Button fx:id="processImageButton" layoutX="14.0" layoutY="68.0" mnemonicParsing="false" onAction="#processImage" prefHeight="26.0" prefWidth="156.0" text="Search Image" />
+            <Button fx:id="videoCaptureButton" layoutX="14.0" layoutY="112.0" mnemonicParsing="false" onAction="#capture" prefHeight="26.0" prefWidth="156.0" text="Capture Video" />
+            <Label layoutX="188.0" layoutY="26.0" text="Image Location" />
+            <TextField fx:id="imgLoc" layoutX="340.0" layoutY="20.0" text="/path/to/image" />
+            <Label layoutX="188.0" layoutY="60.0" text="Cascade Location" />
+            <TextField fx:id="cascLoc" layoutX="340.0" layoutY="56.0" text="/path/to/cascade" />
+            <Label layoutX="188.0" layoutY="95.0" text="Detect Scale" />
+            <TextField fx:id="detectScale" layoutX="340.0" layoutY="90.0" text="1.1" />
+            <Label layoutX="188.0" layoutY="130.0" prefHeight="21.0" prefWidth="152.0" text="Detect Min Neighbors" />
+            <TextField fx:id="detectMinNeighbor" layoutX="340.0" layoutY="128.0" text="3" />
+            <Label layoutX="558.0" layoutY="26.0" text="Num Shrinks" />
+            <TextField fx:id="numShrinks" layoutX="666.0" layoutY="20.0" text="0" />
+            <Label layoutX="558.0" layoutY="61.0" text="Num Grows" />
+            <TextField fx:id="numGrows" layoutX="666.0" layoutY="55.0" text="0" />
+            <Label layoutX="561.0" layoutY="92.0" text="Num Detected" />
+            <Label fx:id="numDetected" layoutX="666.0" layoutY="92.0" text="0" />
          </children>
-      </HBox>
+      </Pane>
    </bottom>
-   <left>
-      <ImageView fx:id="imageViewer" fitHeight="800.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
-   </left>
 </BorderPane>
